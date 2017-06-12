@@ -1,0 +1,137 @@
+﻿<Page
+    x:Class="Snarkle.GamePage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Snarkle"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource ="/Assets/wood.jpg" Stretch="None"></ImageBrush>
+        </Grid.Background>
+        <Image x:Name="arrow1" Visibility="Collapsed" HorizontalAlignment="Left" Height="50" Margin="526,326,0,0" VerticalAlignment="Top" Width="50" Source="Assets/arrow.png" />
+        <Image x:Name="arrow2" Visibility="Collapsed" HorizontalAlignment="Left" Height="50" Margin="614,329,0,0" VerticalAlignment="Top" Width="50" Source="Assets/arrow.png" RenderTransformOrigin="0.5,0.5" >
+            <Image.RenderTransform>
+                <CompositeTransform Rotation="180"/>
+            </Image.RenderTransform>
+        </Image>
+        <Rectangle x:Name="player1Tab"   Visibility="Collapsed" HorizontalAlignment="Left" VerticalAlignment="Top" Fill="#99FFFF00" Width="165" Height="64"/>
+        <TextBlock x:Name="player1Name"  Visibility="Collapsed" TextAlignment="Center" HorizontalAlignment="Left" Margin="0,1,0,0" TextWrapping="Wrap" Text="Player 1" VerticalAlignment="Top" FontFamily="Segoe Print" FontWeight="Bold" Width="165"/>
+        <TextBlock x:Name="player1Score" Visibility="Collapsed" TextAlignment="Center" HorizontalAlignment="Left" Margin="0,20,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" FontFamily="Segoe Print" FontSize="26.667" Width="165"/>
+        <Image x:Name="player1Marker"    Visibility="Collapsed" HorizontalAlignment="Left" Height="50" Margin="56,70,0,0" VerticalAlignment="Top" Width="50" Source="Assets/triangle.png" />
+        <Rectangle x:Name="player2Tab"   Visibility="Collapsed" HorizontalAlignment="Left" VerticalAlignment="Top" Fill="#99008000" Width="165" Height="64" Margin="190,0,0,0" />
+        <TextBlock x:Name="player2Name"  Visibility="Collapsed" TextAlignment="Center" HorizontalAlignment="Left" Margin="190,1,0,0" TextWrapping="Wrap" Text="Player 2" VerticalAlignment="Top" FontFamily="Segoe Print" FontWeight="Bold" Width="163"/>
+        <TextBlock x:Name="player2Score" Visibility="Collapsed" TextAlignment="Center" HorizontalAlignment="Left" Margin="190,19,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" FontFamily="Segoe Print" FontSize="26.667" Width="165"/>
+        <Image x:Name="player2Marker"    Visibility="Collapsed" HorizontalAlignment="Left" Height="50" Margin="248,69,0,0" VerticalAlignment="Top" Width="50" Source="Assets/triangle.png" />
+        <Rectangle x:Name="player3Tab"   Visibility="Collapsed" HorizontalAlignment="Left" Margin="384,0,0,0" VerticalAlignment="Top" Fill="#991C8BE8" Width="165" Height="64" />
+        <TextBlock x:Name="player3Name"  Visibility="Collapsed" TextAlignment="Center" HorizontalAlignment="Left" Margin="384,0,0,0" TextWrapping="Wrap" Text="Player 3" VerticalAlignment="Top" FontFamily="Segoe Print" FontWeight="Bold" Width="165"/>
+        <TextBlock x:Name="player3Score" Visibility="Collapsed" TextAlignment="Center" HorizontalAlignment="Left" Margin="384,18,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" FontFamily="Segoe Print" FontSize="26.667" Width="165"/>
+        <Image x:Name="player3Marker"    Visibility="Collapsed" HorizontalAlignment="Left" Height="50" Margin="439,68,0,0" VerticalAlignment="Top" Width="50" Source="Assets/triangle.png" />
+        <Rectangle x:Name="player4Tab"   Visibility="Collapsed" HorizontalAlignment="Left" Margin="578,0,0,0" VerticalAlignment="Top" Fill="#99FF0000" Width="165" Height="64" />
+        <TextBlock x:Name="player4Name"  Visibility="Collapsed" TextAlignment="Center" HorizontalAlignment="Left" Margin="578,0,0,0" TextWrapping="Wrap" Text="Player 4" VerticalAlignment="Top" FontFamily="Segoe Print" FontWeight="Bold" Width="165"/>
+        <TextBlock x:Name="player4Score" Visibility="Collapsed" TextAlignment="Center" HorizontalAlignment="Left" Margin="578,19,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" FontFamily="Segoe Print" FontSize="26.667" Width="165"/>
+        <Image x:Name="player4Marker"    Visibility="Collapsed" HorizontalAlignment="Left" Height="50" Margin="634,68,0,0" VerticalAlignment="Top" Width="50" Source="Assets/triangle.png" />
+        <Grid Name="rollDiceGrid">
+            <Image x:Name="die1Roll" HorizontalAlignment="Left" Height="100" Margin="256,178,0,0" VerticalAlignment="Top" Width="100" Source="Assets/dieX.png" PointerPressed="die1_PointerPressed" />
+            <Image x:Name="die2Roll" HorizontalAlignment="Left" Height="100" Margin="384,178,0,0" VerticalAlignment="Top" Width="100" Source="Assets/dieX.png" PointerPressed="die2_PointerPressed"/>
+            <Image x:Name="die3Roll" HorizontalAlignment="Left" Height="100" Margin="505,178,0,0" VerticalAlignment="Top" Width="100" Source="Assets/dieX.png" PointerPressed="die3_PointerPressed"/>
+            <Image x:Name="die4Roll" HorizontalAlignment="Left" Height="100" Margin="629,178,0,0" VerticalAlignment="Top" Width="100" Source="Assets/dieX.png" PointerPressed="die4_PointerPressed"/>
+            <Image x:Name="die5Roll" HorizontalAlignment="Left" Height="100" Margin="753,178,0,0" VerticalAlignment="Top" Width="100" Source="Assets/dieX.png" PointerPressed="die5_PointerPressed"/>
+            <Image x:Name="die6Roll" HorizontalAlignment="Left" Height="100" Margin="875,178,0,0" VerticalAlignment="Top" Width="100" Source="Assets/dieX.png" PointerPressed="die6_PointerPressed"/>
+        </Grid>
+        <Grid Name="keepDiceGrid">
+            <Image x:Name="die1Keep" Visibility="Collapsed" HorizontalAlignment="Left" Height="100" Margin="253,421,0,0" VerticalAlignment="Top" Width="100" Source="Assets/die1.png" PointerPressed="die1Keep_PointerPressed"/>
+            <Image x:Name="die2Keep" Visibility="Collapsed" HorizontalAlignment="Left" Height="100" Margin="381,421,0,0" VerticalAlignment="Top" Width="100" Source="Assets/die2.png" PointerPressed="die2Keep_PointerPressed"/>
+            <Image x:Name="die3Keep" Visibility="Collapsed" HorizontalAlignment="Left" Height="100" Margin="502,421,0,0" VerticalAlignment="Top" Width="100" Source="Assets/die3.png" PointerPressed="die3Keep_PointerPressed"/>
+            <Image x:Name="die4Keep" Visibility="Collapsed" HorizontalAlignment="Left" Height="100" Margin="626,421,0,0" VerticalAlignment="Top" Width="100" Source="Assets/die4.png" PointerPressed="die4Keep_PointerPressed"/>
+            <Image x:Name="die5Keep" Visibility="Collapsed" HorizontalAlignment="Left" Height="100" Margin="750,421,0,0" VerticalAlignment="Top" Width="100" Source="Assets/die5.png" PointerPressed="die5Keep_PointerPressed"/>
+            <Image x:Name="die6Keep" Visibility="Collapsed" HorizontalAlignment="Left" Height="100" Margin="872,421,0,0" VerticalAlignment="Top" Width="100" Source="Assets/die6.png" PointerPressed="die6Keep_PointerPressed"/>
+        </Grid>
+        <Rectangle Fill="#9959DC1C" HorizontalAlignment="Left" Height="720" Margin="1008,0,0,0" VerticalAlignment="Top" Width="272" StrokeThickness="2"/>
+        <Button x:Name="roll" Content="Roll" HorizontalAlignment="Left" Margin="103,212,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Background="#99086AF7" BorderThickness="1" BorderBrush="Black" FontFamily="Segoe Print" Click="roll_Click">
+            <Button.RenderTransform>
+                <CompositeTransform ScaleX="3" ScaleY="3"/>
+            </Button.RenderTransform>
+        </Button>
+        <Button x:Name="keep" Content="Keep" HorizontalAlignment="Left" IsEnabled="False" Margin="100,453,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Background="#99086AF7" BorderBrush="Black" BorderThickness="1" FontFamily="Segoe Print" Click="keep_Click">
+            <Button.RenderTransform>
+                <CompositeTransform ScaleX="3" ScaleY="3"/>
+            </Button.RenderTransform>
+        </Button>
+        <Button x:Name="endTurn" Content="End Turn" HorizontalAlignment="Left" Margin="1106,598,0,0" VerticalAlignment="Top" FontFamily="Segoe Print" RenderTransformOrigin="0.5,0.5" Background="#CC5D8AC8" BorderBrush="Black" BorderThickness="1" Click="endTurn_Click">
+            <Button.RenderTransform>
+                <CompositeTransform ScaleX="2" ScaleY="2"/>
+            </Button.RenderTransform>
+        </Button>
+        <Rectangle Fill="#CCEA3B3B" HorizontalAlignment="Left" Height="66" Margin="1008,39,0,0" StrokeThickness="2" VerticalAlignment="Top" Width="272"/>
+        <Rectangle Fill="#CCEA3B3B" HorizontalAlignment="Left" Height="47" Margin="1008,158,0,0" StrokeThickness="2" VerticalAlignment="Top" Width="272"/>
+        <Rectangle Fill="#CCEA3B3B" HorizontalAlignment="Left" Height="47" Margin="1008,287,0,0" StrokeThickness="2" VerticalAlignment="Top" Width="272"/>
+        <TextBlock x:Name="totalsHeader" TextAlignment="Center" HorizontalAlignment="Left" Margin="1008,32,0,0" TextWrapping="Wrap" Text="Totals" VerticalAlignment="Top" FontFamily="Segoe Print" FontWeight="Bold" FontSize="46.667" Width="272"/>
+        <Rectangle Fill="#CCEA3B3B" HorizontalAlignment="Left" Height="47" Margin="1008,413,0,0" StrokeThickness="2" VerticalAlignment="Top" Width="272"/>
+        <TextBlock x:Name="roundTotalHeader" TextAlignment="Center" HorizontalAlignment="Left" Margin="1014,157,0,0" TextWrapping="Wrap" Text="Current Round:" VerticalAlignment="Top" FontFamily="Segoe Print" FontSize="26.667" Width="262" FontWeight="Bold"/>
+        <TextBlock x:Name="previousTotalHeader" TextAlignment="Center" HorizontalAlignment="Left" Margin="1008,285,0,0" TextWrapping="Wrap" Text="Previous Total:" VerticalAlignment="Top" FontFamily="Segoe Print" FontWeight="Bold" FontSize="26.667" Width="272"/>
+        <TextBlock x:Name="possibleTotalHeader" HorizontalAlignment="Left" Margin="1014,412,0,0" TextWrapping="Wrap" Text="Current + Previous:" VerticalAlignment="Top" FontFamily="Segoe Print" FontWeight="Bold" FontSize="26.667" Width="262"/>
+        <TextBlock x:Name="currentTotal" TextAlignment="Center" HorizontalAlignment="Left" Margin="1008,207,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" FontFamily="Segoe Print" FontSize="26.667" Width="272"/>
+        <TextBlock x:Name="previousTotal" TextAlignment="Center" HorizontalAlignment="Left" Margin="1008,335,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" FontFamily="Segoe Print" FontSize="26.667" RenderTransformOrigin="0.526,2.723" Width="272"/>
+        <TextBlock x:Name="currentPreviousTotal" TextAlignment="Center" HorizontalAlignment="Left" Margin="1014,463,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" FontFamily="Segoe Print" FontSize="26.667" Width="266"/>
+        <TextBlock x:Name="farkleText" HorizontalAlignment="Left" Visibility="Collapsed" Margin="95,159,0,0" TextWrapping="Wrap" Text="FARKLE!" VerticalAlignment="Top" FontSize="200" FontWeight="Bold" FontFamily="Segoe Print" Foreground="Black" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" d:LayoutRounding="Auto">
+            <TextBlock.RenderTransform>
+                <CompositeTransform Rotation="19.155"/>
+            </TextBlock.RenderTransform>
+        </TextBlock>
+        <Rectangle x:Name="winningBorder" Fill="#E55A87C4" Visibility="Collapsed" HorizontalAlignment="Left" Height="547" Margin="106,106,0,0" VerticalAlignment="Top" Width="846" Stroke="Black" StrokeThickness="7"/>
+        <Button x:Name="endGame" Visibility="Collapsed" Content="Ok" HorizontalAlignment="Left" Margin="513,547,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Background="#FF86C43C" BorderBrush="Black" BorderThickness="1" FontFamily="Segoe Print" Click="endGame_Click">
+            <Button.RenderTransform>
+                <CompositeTransform ScaleX="2" ScaleY="2"/>
+            </Button.RenderTransform>
+        </Button>
+        <TextBlock x:Name="winningText1" Visibility="Collapsed" TextAlignment="Center" HorizontalAlignment="Left" Margin="106,247,0,0" TextWrapping="Wrap" Text="has won the game" VerticalAlignment="Top" FontSize="40" FontFamily="Segoe Print" Width="846"/>
+        <TextBlock x:Name="winningText2" Visibility="Collapsed" TextAlignment="Center" HorizontalAlignment="Left" Margin="106,311,0,0" TextWrapping="Wrap" Text="with a score of" VerticalAlignment="Top" FontSize="40" FontFamily="Segoe Print" Width="846"/>
+        <TextBlock x:Name="winningPlayer" Visibility="Collapsed" TextAlignment="Center" HorizontalAlignment="Left" Margin="106,132,0,0" TextWrapping="Wrap" Text="Player" VerticalAlignment="Top" FontSize="66.667" FontFamily="Segoe Print" Width="846"/>
+        <TextBlock x:Name="winningScore" Visibility="Collapsed" TextAlignment="Center" HorizontalAlignment="Left" Margin="106,381,0,0" TextWrapping="Wrap" Text="Score" VerticalAlignment="Top" FontSize="66.667" FontFamily="Segoe Print" Width="846"/>
+        <Button x:Name="rules" Content="Rules" HorizontalAlignment="Left" Margin="890,647,0,0" VerticalAlignment="Top" FontFamily="Segoe Print" RenderTransformOrigin="0.5,0.5" Background="#CC5D8AC8" BorderBrush="Black" BorderThickness="1" Click="rules_Click">
+            <Button.RenderTransform>
+                <CompositeTransform ScaleX="2" ScaleY="2"/>
+            </Button.RenderTransform>
+        </Button>
+        <TextBlock x:Name="notValidKeep" Visibility="Collapsed" HorizontalAlignment="Left" Margin="279,550,0,0" TextWrapping="Wrap" Text="Not A Valid Scoring Value!" VerticalAlignment="Top" Foreground="Red" FontSize="40" FontFamily="Segoe Print"/>
+
+        <Grid x:Name="rulesGrid" Visibility="Collapsed">
+            <Rectangle Fill="#FF086AF7" HorizontalAlignment="Left" Height="590" Margin="10,0,0,0" Stroke="Black" VerticalAlignment="Top" Width="1260"/>
+            <TextBlock x:Name="rulesHeader" HorizontalAlignment="Left" Margin="721,18,0,0" TextWrapping="Wrap" Text="Rules" VerticalAlignment="Top" FontSize="40" FontFamily="Segoe Print"/>
+            <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="446,83,0,0" TextWrapping="Wrap" Text="Object: Be the player with the highest score over 5,000." VerticalAlignment="Top" FontFamily="Segoe Print" FontSize="16"/>
+            <TextBlock x:Name="textBlock_Copy" HorizontalAlignment="Left" Margin="446,122,0,0" TextWrapping="Wrap" Text="• Single 1's and 5's are worth points." VerticalAlignment="Top" FontFamily="Segoe Print" FontSize="16"/>
+            <TextBlock x:Name="textBlock_Copy1" HorizontalAlignment="Left" Margin="446,150,0,0" TextWrapping="Wrap" Text="• Other numbers count if you get three or more of the same number in a single roll." VerticalAlignment="Top" FontFamily="Segoe Print" FontSize="16"/>
+            <TextBlock x:Name="textBlock_Copy2" HorizontalAlignment="Left" Margin="446,178,0,0" TextWrapping="Wrap" Text="• Other combinations of numbers are worth points if you get them in a single roll." VerticalAlignment="Top" FontFamily="Segoe Print" FontSize="16"/>
+            <TextBlock x:Name="textBlock_Copy3" HorizontalAlignment="Left" Margin="446,206,0,0" TextWrapping="Wrap" Text="• Some scoring dice must be removed after every roll." VerticalAlignment="Top" FontFamily="Segoe Print" FontSize="16"/>
+            <TextBlock x:Name="textBlock_Copy4" HorizontalAlignment="Left" Margin="467,235,0,0" TextWrapping="Wrap" Text="Note: Dice from multiple rolls cannot be added together. For example, if you set aside one 5 (50 points) on your first roll and two 5's (100 points) on your second roll, you have 150 points. You cannot add them together to make three 5's (500 points)." VerticalAlignment="Top" FontFamily="Segoe Print" FontSize="16" Width="711"/>
+            <TextBlock x:Name="textBlock_Copy5" HorizontalAlignment="Left" Margin="446,326,0,0" TextWrapping="Wrap" Text="• If you're lucky enough to keep all 6 Dice, you can roll them all again to build your running total." VerticalAlignment="Top" FontFamily="Segoe Print" FontSize="16"/>
+            <TextBlock x:Name="textBlock_Copy6" HorizontalAlignment="Left" Margin="446,363,0,0" TextWrapping="Wrap" Text="• After each roll, click the dice that are worth points and then click &quot;Keep&quot;.   You must remove at least one Die after each roll and keep a running total of your points for that round." VerticalAlignment="Top" FontFamily="Segoe Print" FontSize="16" Width="799"/>
+            <TextBlock x:Name="textBlock_Copy7" HorizontalAlignment="Left" Margin="446,427,0,0" TextWrapping="Wrap" Text="• If you cannot set aside any Dice after a roll, that's a Farkle. You lose your current rounds points and play passes to the next player." VerticalAlignment="Top" FontFamily="Segoe Print" FontSize="16" Width="799"/>
+            <TextBlock x:Name="textBlock_Copy8" HorizontalAlignment="Left" Margin="446,483,0,0" TextWrapping="Wrap" Text="• You may stop rolling at any time by clicking the &quot;End Turn&quot; button to add your running total for that round to your accumulated score and pass play to the next player. These points are now safe and you cannot lose them." VerticalAlignment="Top" FontFamily="Segoe Print" FontSize="16" Width="799"/>
+            <Button x:Name="closeRules" Content="Close" HorizontalAlignment="Left" Margin="890,647,0,0" VerticalAlignment="Top" FontFamily="Segoe Print" RenderTransformOrigin="1,1" Background="#FF5D8AC8" BorderBrush="Black" BorderThickness="1" Click="closeRules_Click">
+                <Button.RenderTransform>
+                    <CompositeTransform ScaleX="2" ScaleY="2" TranslateX="28" TranslateY="18.5"/>
+                </Button.RenderTransform>
+            </Button>
+            <TextBlock x:Name="rulesHeader_Copy" HorizontalAlignment="Left" Margin="68,18,0,0" TextWrapping="Wrap" Text="Scoring" VerticalAlignment="Top" FontSize="40" FontFamily="Segoe Print"/>
+            <TextBlock x:Name="textBlock_Copy9" HorizontalAlignment="Left" Margin="68,89,0,0" TextWrapping="Wrap" Text="Single 1 = 100 " VerticalAlignment="Top" FontFamily="Segoe Print" FontSize="16"/>
+            <TextBlock x:Name="textBlock_Copy10" HorizontalAlignment="Left" Margin="68,122,0,0" TextWrapping="Wrap" Text="Single 5 = 50 " VerticalAlignment="Top" FontFamily="Segoe Print" FontSize="16"/>
+            <TextBlock x:Name="textBlock_Copy11" HorizontalAlignment="Left" Margin="68,155,0,0" TextWrapping="Wrap" Text="Three 1's = 300 " VerticalAlignment="Top" FontFamily="Segoe Print" FontSize="16"/>
+            <TextBlock x:Name="textBlock_Copy12" HorizontalAlignment="Left" Margin="68,188,0,0" TextWrapping="Wrap" Text="Three 2's = 200 " VerticalAlignment="Top" FontFamily="Segoe Print" FontSize="16"/>
+            <TextBlock x:Name="textBlock_Copy13" HorizontalAlignment="Left" Margin="68,221,0,0" TextWrapping="Wrap" Text="Three 3's = 300" VerticalAlignment="Top" FontFamily="Segoe Print" FontSize="16"/>
+            <TextBlock x:Name="textBlock_Copy14" HorizontalAlignment="Left" Margin="68,254,0,0" TextWrapping="Wrap" Text="Three 4's = 400" VerticalAlignment="Top" FontFamily="Segoe Print" FontSize="16"/>
+            <TextBlock x:Name="textBlock_Copy15" HorizontalAlignment="Left" Margin="68,287,0,0" TextWrapping="Wrap" Text="Three 5's = 500" VerticalAlignment="Top" FontFamily="Segoe Print" FontSize="16"/>
+            <TextBlock x:Name="textBlock_Copy16" HorizontalAlignment="Left" Margin="68,320,0,0" TextWrapping="Wrap" Text="Three 6's = 600" VerticalAlignment="Top" FontFamily="Segoe Print" FontSize="16"/>
+            <TextBlock x:Name="textBlock_Copy17" HorizontalAlignment="Left" Margin="68,353,0,0" TextWrapping="Wrap" Text="Four of any number = 1,000" VerticalAlignment="Top" FontFamily="Segoe Print" FontSize="16"/>
+            <TextBlock x:Name="textBlock_Copy18" HorizontalAlignment="Left" Margin="68,386,0,0" TextWrapping="Wrap" Text="Five of any number = 2,000" VerticalAlignment="Top" FontFamily="Segoe Print" FontSize="16"/>
+            <TextBlock x:Name="textBlock_Copy19" HorizontalAlignment="Left" Margin="68,419,0,0" TextWrapping="Wrap" Text="Six of any number = 3,000" VerticalAlignment="Top" FontFamily="Segoe Print" FontSize="16"/>
+            <TextBlock x:Name="textBlock_Copy20" HorizontalAlignment="Left" Margin="68,452,0,0" TextWrapping="Wrap" Text="1-6 straight = 1,500" VerticalAlignment="Top" FontFamily="Segoe Print" FontSize="16"/>
+            <TextBlock x:Name="textBlock_Copy21" HorizontalAlignment="Left" Margin="68,485,0,0" TextWrapping="Wrap" Text="Three pairs = 1,500" VerticalAlignment="Top" FontFamily="Segoe Print" FontSize="16"/>
+            <TextBlock x:Name="textBlock_Copy22" HorizontalAlignment="Left" Margin="68,518,0,0" TextWrapping="Wrap" Text="Four of any number with a pair = 1,500" VerticalAlignment="Top" FontFamily="Segoe Print" FontSize="16"/>
+            <TextBlock x:Name="textBlock_Copy23" HorizontalAlignment="Left" Margin="38,539,0,0" TextWrapping="Wrap" Text="  " VerticalAlignment="Top" FontFamily="Segoe Print" FontSize="16"/>
+        </Grid>
+    </Grid>
+</Page>
